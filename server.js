@@ -35,17 +35,18 @@ app.use(express.static(__dirname + '/public'));
 
 hbs.registerHelper("getCurrentYear", ()=>{
   return new Date().getFullYear();
-})
+});
 
 hbs.registerHelper("screamIt", (fixedString)=>{
   return fixedString.toUpperCase();
-})
+});
 
 let homePageValues = {
   title: "Home Page",
   author: "Brock Halladay",
   Message: `Hello, ${currentUser}, welcome to this express app`
-}
+};
+
 app.get('/', (request, response)=>{
   response.render('home.hbs', homePageValues);
 });
@@ -54,9 +55,19 @@ let aboutPageValues = {
   title: "About Page",
   author: "Brock Halladay"
 }
+
 app.get('/about', (request, response)=>{
   response.render('about.hbs', aboutPageValues);
-})
+});
+
+let projectsPageValues = {
+  title: "Projects Page",
+  author: "Brock Halladay"
+};
+
+app.get('/projects', (request,response)=>{
+  response.render('projects.hbs', projectsPageValues);
+});
 
 app.get('/brocktest', (request, response)=>{
   response.send({
