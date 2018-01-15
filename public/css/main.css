@@ -9,3 +9,14 @@ nav {
 .gold {
   background-color: #A17925;
 }
+
+.brand-logo img {
+  height: 72px;
+  display: none;
+}
+
+@media only screen and (min-width: 992px){
+  .brand-logo img {
+    display: inline;
+  }
+}
